@@ -9,7 +9,7 @@ To deepen your undrstanding of these classes you may checkout the online documen
 # Build and Install the code
 Follow these steps to build and properly install your module: 
 
-```
+```bash
 $ cd tutorial_yarp-producer-consumer
 $ mkdir build; cd build
 $ cmake ../
@@ -25,7 +25,7 @@ The producer opens a port `/producer`, in which it sends numbered messages. The 
 
 Producer:
 
-```
+```bash
 $ tutorial_yarp-producer-port
 yarp: Port /producer active at tcp://10.255.36.11:10097/
 [1] written message
@@ -35,18 +35,18 @@ yarp: Port /producer active at tcp://10.255.36.11:10097/
 ```
 Run the consumer and connect `/producer` to `/consumer`
 
-```
+```bash
 $./tutorial_yarp-consumer-port 
 yarp: Port /consumer active at tcp://10.255.36.11:10098/
 ```
 
 In another console type:
-```
+```bash
 $ yarp connect /producer /consumer
 ```
 
 The consumer should show something like this:
-```
+```bash
 yarp: Receiving input from /producer to /consumer using tcp
 Received: 20 Hello from producer
 Received: 21 Hello from producer
@@ -57,7 +57,7 @@ Received: 24 Hello from producer
 
 Now run another instance of consumer, specify a different port name and add a delay. 
 
-```
+```bash
 $./tutorial_yarp-consumer-port --name /consumer2 --delay 5000
 ```
 
@@ -65,7 +65,7 @@ Now you have a second consumer. To simulate a slow computer we added a delay (5s
 
 Connect the second consumer to the producer:
 
-```
+```bash
 yarp connect /producer /consumer2
 ```
 
@@ -73,12 +73,12 @@ What happens to the producer? What happens when you disconnect one of the consum
 
 Try connecting using a different protocol (i.e. udp):
 
-```
+```bash
 yarp connect /producer /consumer2 udp
 yarp connect /producer /consumer udp
 ```
 
-Now replicate he same experiment, this time using `yarp::os::BufferedPort`, i.e. `tutorial_yarp-producer-buff` and `tutorial_yarp-consumer-buff`.
+Now replicate the same experiment, this time using `yarp::os::BufferedPort`, i.e. `tutorial_yarp-producer-buff` and `tutorial_yarp-consumer-buff`.
 
 # Further reading
 
