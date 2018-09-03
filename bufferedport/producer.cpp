@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
         Bottle &message=outPort.prepare();
         message.clear(); //important, objects get recycled
-        message.addInt(counter);
+        message.addInt32(counter);
         message.addString("Hello from producer");
         
         outPort.write();

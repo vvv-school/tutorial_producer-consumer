@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8.9)
 project(tutorial_producer-consumer)
 
 # mandatory use of these packages
-find_package(YARP REQUIRED)
+find_package(YARP 3.0 REQUIRED)
 
 find_package(ICUBcontrib REQUIRED)
 
@@ -15,8 +15,6 @@ list(APPEND CMAKE_MODULE_PATH ${ICUBCONTRIB_MODULE_PATH})
 include(ICUBcontribHelpers)
 # specify to install in $ICUBcontrib_DIR/bin
 icubcontrib_set_default_prefix()
-
-include_directories(${YARP_INCLUDE_DIRS})
 
 ############## Ports
 add_executable(tutorial_yarp-producer-port ${CMAKE_SOURCE_DIR}/port/producer.cpp)

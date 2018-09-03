@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     if (parameters.check("delay"))
     {
-        delay=parameters.find("delay").asInt();
+        delay=parameters.find("delay").asInt32();
         printf("Setting delay to %d[ms]\n", delay);
     }
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         if (message==0)
             continue;
 
-        int counter=message->get(0).asInt();
+        int counter=message->get(0).asInt32();
         string msg=message->get(1).asString().c_str();
 
         printf("Received: %d %s\n", counter, msg.c_str());

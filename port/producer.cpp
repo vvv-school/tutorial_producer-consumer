@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         counter++;
 
         Bottle message;
-        message.addInt(counter);
+        message.addInt32(counter);
         message.addString("Hello from producer");
         outPort.write(message);
         printf("[%d] written message\n", counter);
